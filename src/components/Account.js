@@ -1,20 +1,27 @@
 // src/components/Account.js
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import './Account.css';
 
 const Account = () => {
-  const userName = "John Doe"; // Placeholder for user's name
-  const averageDailySpending = 25.5; // Placeholder for daily average spending
-  const averageWeeklySpending = 180.0; // Placeholder for weekly average spending
-  const averageMonthlySpending = 720.0; // Placeholder for monthly average spending
+  const [user, setUser] = useState({});
+  const [averageSpending, setAverageSpending] = useState(0);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user')) || {};
+    setUser(storedUser);
+
+    const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    const totalSpending = storedExpenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
+    const avgSpending = storedExpenses.length ? totalSpending / storedExpenses.length : 0;
+    setAverageSpending(avgSpending);
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-red-500 text-3xl mb-4">Account</h1>
-      <div className="mb-4">
-        <h2 className="text-white text-xl">User: {userName}</h2>
-        <p className="text-white">Average Daily Spending: £{averageDailySpending}</p>
-        <p className="text-white">Average Weekly Spending: £{averageWeeklySpending}</p>
-        <p className="text-white">Average Monthly Spending: £{averageMonthlySpending}</p>
+    <div className="account-page">
+      <h1 className="account-title">Expense Tracker</h1>
+      <div className="account-info">
+        <h2>{user.username}</h2>
+        <p>Average Spending: ${averageSpending.toFixed(2)}</p>
       </div>
     </div>
   );
