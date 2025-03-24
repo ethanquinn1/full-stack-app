@@ -1,0 +1,46 @@
+/* src/index.css */
+
+/* Ensure a smooth background color */
+body {
+    background-color: black;
+    color: white;
+  }
+  
+  /* Align text centrally for the app */
+  h1, h2, p {
+    text-align: center;
+  }
+  
+  /* Add some padding and center content properly in the Tracker page */
+  nav {
+    display: flex;
+    gap: 1rem; /* Spacing between buttons */
+    justify-content: center; /* Align buttons horizontally centered */
+    margin-bottom: 2rem; /* Add some space below the buttons */
+  }
+  
+  button, .link-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover, .link-button:hover {
+    background-color: darkred;
+  }
+  
+  /* Add space between sections */
+  section {
+    margin-bottom: 20px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
