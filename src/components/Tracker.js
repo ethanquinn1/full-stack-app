@@ -1,6 +1,6 @@
 // src/components/Tracker.js
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom"; // Outlet used for nested routes
 
 const Tracker = () => {
   return (
@@ -9,19 +9,19 @@ const Tracker = () => {
       
       <nav className="flex space-x-4">
         <Link
-          to="add-expense"
+          to="add-expense" // Correct path for the AddExpense component
           className="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-200"
         >
           Add Expense
         </Link>
         <Link
-          to="view-expenses"
+          to="view-expenses" // Correct path for the ViewExpenses component
           className="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-200"
         >
           View Expenses
         </Link>
         <Link
-          to="account"
+          to="account" // Correct path for the Account component
           className="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-200"
         >
           View Account

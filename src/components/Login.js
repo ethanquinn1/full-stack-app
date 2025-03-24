@@ -3,33 +3,44 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    console.log("Logged in with", email, password);
-    navigate("/tracker"); // Navigate to the tracker after successful login
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+
+    if (username === storedUsername && password === storedPassword) {
+      navigate("/tracker");
+    } else {
+      setError("Incorrect username or password.");
+    }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-red-500 text-3xl mb-4">Login</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-red-500 text-3xl mb-6">Login</h1>
       <input
-        className="p-2 mb-2"
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        className="mb-4 px-6 py-3 border border-gray-400 rounded-md"
       />
       <input
-        className="p-2 mb-2"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        className="mb-4 px-6 py-3 border border-gray-400 rounded-md"
       />
-      <button className="bg-red-500 px-4 py-2" onClick={handleLogin}>
+      {error && <p className="text-red-500">{error}</p>}
+      <button
+        onClick={handleLogin}
+        className="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-200"
+      >
         Login
       </button>
     </div>
