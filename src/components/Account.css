@@ -1,6 +1,9 @@
+
 .account-page {
   text-align: center;
   padding: 20px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
 }
 
 .account-title {
@@ -9,10 +12,12 @@
 }
 
 .account-info {
-  background: #f8f8f8;
+  background: #222;
+  color: white;
   padding: 20px;
   border-radius: 10px;
   display: inline-block;
+  width: 300px;
 }
 
 .back-button {
