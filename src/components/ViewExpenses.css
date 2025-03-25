@@ -1,18 +1,27 @@
+.view-expenses-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.view-expenses-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 .expenses-table {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
 .expenses-table th, .expenses-table td {
-  border: 1px solid #fff;
+  border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
 }
 
 .expenses-table th {
   background-color: red;
-  color: white;
 }
 
 .remove-button {
@@ -25,5 +34,22 @@
 }
 
 .remove-button:hover {
+  background-color: darkred;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.back-button:hover {
   background-color: darkred;
 }

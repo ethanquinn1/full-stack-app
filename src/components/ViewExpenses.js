@@ -1,8 +1,9 @@
-// src/components/ViewExpenses.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ViewExpenses.css';
 
 const ViewExpenses = () => {
+  const navigate = useNavigate();
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
@@ -18,38 +19,30 @@ const ViewExpenses = () => {
 
   return (
     <div className="view-expenses-page">
-      <h1 className="view-expenses-title">Expense Tracker</h1>
-      {expenses.length > 0 ? (
-        <table className="expenses-table">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Amount (£)</th>
-              <th>Date</th>
-              <th>Action</th>
+      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
+      <h1 className="view-expenses-title">Here is your saved expenses</h1>
+      <table className="expenses-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount (£)</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {expenses.map((expense, index) => (
+            <tr key={index}>
+              <td>{expense.description}</td>
+              <td>£{parseFloat(expense.amount).toFixed(2)}</td>
+              <td>{expense.date}</td>
+              <td>
+                <button className="remove-button" onClick={() => handleRemoveExpense(index)}>Remove</button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {expenses.map((expense, index) => (
-              <tr key={index}>
-                <td>{expense.description}</td>
-                <td>£{expense.amount}</td>
-                <td>{expense.date}</td>
-                <td>
-                  <button
-                    className="remove-button"
-                    onClick={() => handleRemoveExpense(index)}
-                  >
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>No expenses recorded yet.</p>
-      )}
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

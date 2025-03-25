@@ -1,4 +1,3 @@
-// src/components/AddExpense.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddExpense.css';
@@ -20,7 +19,8 @@ const AddExpense = () => {
 
   return (
     <div className="add-expense-page">
-      <h1 className="add-expense-title">Expense Tracker</h1>
+      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
+      <h1 className="add-expense-title">Add your expenses here</h1>
       <form className="add-expense-form" onSubmit={handleAddExpense}>
         <input
           type="text"

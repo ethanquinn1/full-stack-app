@@ -1,23 +1,33 @@
-/* src/components/Account.css */
 .account-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #000;
-  }
-  
-  .account-title {
-    color: red;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-  
-  .account-info {
-    color: white;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
+  text-align: center;
+  padding: 20px;
+}
+
+.account-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.account-info {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background-color: darkred;
+}
