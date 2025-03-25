@@ -1,8 +1,8 @@
-// src/components/ViewExpense.js
+// src/components/ViewExpenses.js
 import React, { useState, useEffect } from 'react';
-import './ViewExpense.css';
+import './ViewExpenses.css';
 
-const ViewExpense = () => {
+const ViewExpenses = () => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
@@ -10,29 +10,48 @@ const ViewExpense = () => {
     setExpenses(storedExpenses);
   }, []);
 
+  const handleRemoveExpense = (index) => {
+    const updatedExpenses = expenses.filter((_, i) => i !== index);
+    setExpenses(updatedExpenses);
+    localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+  };
+
   return (
-    <div className="view-expense-page">
-      <h1 className="view-expense-title">Expense Tracker</h1>
-      <table className="expense-table">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Amount</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {expenses.map((expense, index) => (
-            <tr key={index}>
-              <td>{expense.description}</td>
-              <td>{expense.amount}</td>
-              <td>{expense.date}</td>
+    <div className="view-expenses-page">
+      <h1 className="view-expenses-title">Expense Tracker</h1>
+      {expenses.length > 0 ? (
+        <table className="expenses-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Amount (£)</th>
+              <th>Date</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {expenses.map((expense, index) => (
+              <tr key={index}>
+                <td>{expense.description}</td>
+                <td>£{expense.amount}</td>
+                <td>{expense.date}</td>
+                <td>
+                  <button
+                    className="remove-button"
+                    onClick={() => handleRemoveExpense(index)}
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No expenses recorded yet.</p>
+      )}
     </div>
   );
 };
 
-export default ViewExpense;
+export default ViewExpenses;

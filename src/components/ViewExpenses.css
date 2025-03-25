@@ -1,0 +1,29 @@
+.expenses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.expenses-table th, .expenses-table td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.expenses-table th {
+  background-color: red;
+  color: white;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
