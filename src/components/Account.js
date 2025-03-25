@@ -14,7 +14,7 @@ const Account = () => {
     setUser(storedUser);
 
     const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
-    
+
     if (storedExpenses.length > 0) {
       const today = new Date();
       const oneDay = 1000 * 60 * 60 * 24; // Milliseconds in one day
@@ -23,10 +23,13 @@ const Account = () => {
 
       const filteredExpenses = storedExpenses.map(expense => ({
         ...expense,
-        date: new Date(expense.date)
+        date: new Date(expense.date),
       }));
 
-      const totalSpending = filteredExpenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
+      const totalSpending = filteredExpenses.reduce(
+        (total, expense) => total + parseFloat(expense.amount),
+        0
+      );
 
       // Calculate spending per day
       const firstExpenseDate = new Date(Math.min(...filteredExpenses.map(exp => exp.date.getTime())));
@@ -46,7 +49,7 @@ const Account = () => {
   return (
     <div className="account-page">
       <button className="back-button" onClick={() => navigate(-1)}>Back</button>
-      <h1 className="account-title">Expense Tracker</h1>
+      <h1 className="account-title">Your Average Spending Excluding Monthly Bills</h1>
       <div className="account-info">
         <h2>{user.username}</h2>
         <p>Average Spending Per Day: £{averageSpendingPerDay.toFixed(2)}</p>

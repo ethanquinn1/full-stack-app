@@ -1,25 +1,27 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LandingPage from './components/LandingPage'; // Import the new LandingPage component
+import LandingPage from './components/LandingPage'; 
 import Login from './components/Login';
 import Register from './components/Register';
-import Tracker from './components/Tracker'; // Assuming you have other components like Tracker
+import Tracker from './components/Tracker'; 
 import AddExpense from './components/AddExpense';
 import ViewExpenses from './components/ViewExpenses';
 import Account from './components/Account';
+import ViewBills from './components/ViewBills'; // New import for View Bills
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} /> {/* Landing Page Route */}
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/tracker" element={<Tracker />} /> {/* Tracker page where user can navigate */}
+        <Route path="/tracker" element={<Tracker />} />
         <Route path="/add-expense" element={<AddExpense />} />
         <Route path="/view-expenses" element={<ViewExpenses />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/view-bills" element={<ViewBills />} /> {/* New route for View Bills */}
       </Routes>
     </Router>
   );
