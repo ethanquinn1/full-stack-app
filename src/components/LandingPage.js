@@ -1,4 +1,4 @@
-// src/components/LandingPage.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';  // Make sure your CSS file is linked

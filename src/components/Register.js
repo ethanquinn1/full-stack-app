@@ -1,4 +1,4 @@
-// src/components/Register.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';  // Make sure your CSS file is linked
@@ -12,7 +12,7 @@ const Register = () => {
     e.preventDefault();
     const newUser = { username, password };
     localStorage.setItem('user', JSON.stringify(newUser));
-    navigate('/login');  // Redirect to login after successful registration
+    navigate('/login');  //Re direct to login after successfull registration
   };
 
   return (

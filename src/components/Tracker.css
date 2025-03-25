@@ -1,8 +1,8 @@
 .tracker-buttons {
   display: flex;
-  flex-direction: column;  /* Stack buttons vertically */
-  align-items: center;  /* Center buttons horizontally */
-  gap: 20px;  /* Add spacing between buttons */
+  flex-direction: column;  
+  align-items: center;  
+  gap: 20px;  
 }
 
 .tracker-button {
@@ -12,7 +12,7 @@
   text-decoration: none;
   border-radius: 5px;
   font-size: 1.2rem;
-  width: 250px;  /* Make buttons uniform in size */
+  width: 250px; 
   text-align: center;
 }
 

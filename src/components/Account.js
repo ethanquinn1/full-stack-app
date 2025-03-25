@@ -17,9 +17,9 @@ const Account = () => {
 
     if (storedExpenses.length > 0) {
       const today = new Date();
-      const oneDay = 1000 * 60 * 60 * 24; // Milliseconds in one day
+      const oneDay = 1000 * 60 * 60 * 24; 
       const oneWeek = oneDay * 7;
-      const oneMonth = oneDay * 30; // Approximate
+      const oneMonth = oneDay * 30; 
 
       const filteredExpenses = storedExpenses.map(expense => ({
         ...expense,
@@ -31,7 +31,7 @@ const Account = () => {
         0
       );
 
-      // Calculate spending per day
+      //Calculates spending per day
       const firstExpenseDate = new Date(Math.min(...filteredExpenses.map(exp => exp.date.getTime())));
       const totalDays = Math.max(1, Math.ceil((today - firstExpenseDate) / oneDay));
       setAverageSpendingPerDay(totalSpending / totalDays);
