@@ -8,7 +8,7 @@ import Tracker from './components/Tracker';
 import AddExpense from './components/AddExpense';
 import ViewExpenses from './components/ViewExpenses';
 import Account from './components/Account';
-import ViewBills from './components/ViewBills'; // New import for View Bills
+import ViewBills from './components/ViewBills'; 
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/add-expense" element={<AddExpense />} />
         <Route path="/view-expenses" element={<ViewExpenses />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/view-bills" element={<ViewBills />} /> {/* New route for View Bills */}
+        <Route path="/view-bills" element={<ViewBills />} /> 
       </Routes>
     </Router>
   );
